@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{state['name']}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .jumbotron {
+            background-image: url({{state['image_url']}});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 400px;
+            color: white;
+            text-shadow: 0 0 5px black;
+            padding: 0;
+        }
+
+        .jumbotron .container {
+            position: relative;
+            height: 100%;
+        }
+
+        .jumbotron h1{
+            line-height: 400px;
+            text-align: center;
+            font-size: 6rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<main role="main">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="display-4">{{state['name']}}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{state['name']}}</li>
+            </ol>
+        </nav>
+
+        <p class="text-justify">
+            {{state['description']}}
+        </p>
+
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="{{state['video_url'].replace('watch?v=', 'embed/')}}"></iframe>
+        </div>
+    </div>
+
+  <footer class="container border-top mt-5 p-3">
+    <p>© 2020 Rocío García & Guillermina Martinelli</p>
+  </footer>
+</main>
+
+</body>
+</html>

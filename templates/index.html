@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Conociendo Argentina</title>
+
+
+<style>
+.jumbotron {
+    background-image: url(https://wallpaperstock.net/wallpapers/thumbs1/32976wide.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 400px;
+    color: white;
+    text-shadow: 0 0 5px black;
+    padding: 0;
+}
+
+.jumbotron .container {
+    position: relative;
+    height: 100%;
+}
+
+.jumbotron h1{
+    line-height: 400px;
+    text-align: center;
+    font-size: 6rem;
+}
+
+.state-image {
+    filter: grayscale(0.5);
+    height: 140px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.card:hover .state-image {
+    background-size: auto 200%;
+    transition: all linear 5s;
+    filter: grayscale(0);
+}
+</style>
+
+</head>
+<body>
+<main role="mail">
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Conociendo Argentina</h1>
+    </div>
+  </div>
+
+  <div class="container marketing">
+
+      <div class="row">
+
+          {% for state in states_list %}
+              <div class="col-lg-4" style="text-align: center;">
+                <div class="card m-2">
+                  <div class="card-body">
+                    <div style="background-image: url('{{state['image_url']}}')" class="state-image"></div>
+                    <h5 class="card-title">{{state['name']}}</h5>
+                    <p class="card-text text-muted text-justify" style="height: 100px;">
+                      {{ state['description'][0:100] }}...
+                    </p>
+                    <a href="/provincia/{{ state['id'] }}" class="btn btn-block btn-outline-primary">Ver más »</a>
+                  </div>
+                </div>
+              </div><!-- /.col-lg-4 -->
+          {% endfor %}
+      </div><!-- /.row -->
+
+    </div>
+
+  <footer class="container border-top mt-5 p-3">
+    <p>© 2020 Rocío García & Guillermina Martinelli</p>
+  </footer>
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
