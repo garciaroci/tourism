@@ -39,7 +39,7 @@ venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-5. Cargar base de datos:
+4. Cargar base de datos:
 
 ```
 python init_database.py
