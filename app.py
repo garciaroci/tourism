@@ -12,7 +12,7 @@ db = mysql.connect(
 def get_states():
     cursor = db.cursor()
 
-    ## Consultamos todas las provincias cargadas
+    ## Consultamos todas las provincias cargadas con su informacion
     query = "SELECT * FROM state"
 
     ## Ejecutamos la consulta
@@ -20,9 +20,10 @@ def get_states():
 
     ## Obtenemos el resultado de la consulta. 
     states = cursor.fetchall()
-
+    
     result = []
     for state in states:
+        #transorma cada tupla en un diccionario para que sea facil de leer el codigo, el append es para agregar el valor
         result.append({
             "id": state[0],
             "name": state[1],
@@ -36,7 +37,7 @@ def get_states():
 def get_state(id):
     cursor = db.cursor()
 
-    ## Consultamos por una provincia en particular buscando por id
+    ## Consultamos por una provincia en particular buscando por id, a la base de datos tenemos que pasarle todo en texto por eso reemplazamos el numero por string
     query = "SELECT * FROM state WHERE id = %s" % str(id)
 
     ## Ejecutamos la consulta
@@ -57,11 +58,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    states_list = get_states()
-
-    return render_template('index.html', states_list=states_list)
+    a = get_states()
+    return render_template('index.html', states_list=a)
 
 @app.route('/provincia/<state_id>')
 def state(state_id):
-    state = get_state(state_id)
-    return render_template('state.html', state=state)
+    b = get_state(state_id)
+    return render_template('state.html', state=b)
