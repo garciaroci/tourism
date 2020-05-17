@@ -29,7 +29,6 @@
 }
 
 .state-image {
-    filter: grayscale(0.5);
     height: 140px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -37,13 +36,7 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
-/* hover es cuando le ponemos el mouse arriba del elemento, y la transicion es de manera lineal que dura 5s */
-/* el fondo se agranda con un 200% alto y el ancho se pone automatico */
-.card:hover .state-image {
-    background-size: auto 200%;
-    transition: all linear 5s;
-    filter: grayscale(0);
-}
+
 </style>
 
 </head>
@@ -70,7 +63,7 @@
                     <p class="card-text text-muted text-justify" style="height: 100px;">
                       {{ state['description'][0:100] }}...
                     </p>
-                    <a href="/provincia/{{ state['id'] }}" class="btn btn-block btn-outline-primary">Ver más »</a>
+                    <a href="/{{ state['id'] }}" class="btn btn-block btn-outline-primary">Ver más »</a>
                   </div>
                 </div>
               </div><!-- /.col-lg-4 -->

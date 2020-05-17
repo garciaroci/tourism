@@ -46,6 +46,7 @@ def get_state(id):
     ## Obtenemos el resultado de la consulta. 
     states = cursor.fetchall()
 
+    #los dobles [] es porque solo queremos la PRIMERA provincia que nos de la base de datos con ese id
     return {
             "id": states[0][0],
             "name": states[0][1],
@@ -61,7 +62,7 @@ def index():
     a = get_states()
     return render_template('index.html', states_list=a)
 
-@app.route('/provincia/<state_id>')
-def state(state_id):
-    b = get_state(state_id)
+@app.route('/<id>')
+def state(id):
+    b = get_state(id)
     return render_template('state.html', state=b)

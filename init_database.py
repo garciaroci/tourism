@@ -7,7 +7,7 @@ db = mysql.connect(
     passwd = "password",
     database = "turism"
 )
-
+#Un cursor es una estructura de control que se usa para recorrer (y eventualmente procesar) los records de un result set (resultados de una query)
 cursor = db.cursor()
 
 ## Eliminamos la tabla de provincias si existe
@@ -17,17 +17,7 @@ query = "DROP TABLE IF EXISTS  `state`;"
 cursor.execute(query)
 
 ## Creamos la tabla de provincias
-query = "CREATE TABLE `state` 
-    ( `id` int NOT NULL AUTO_INCREMENT, 
-    `name` varchar(100) NOT NULL, 
-    `description` longtext, 
-    `image_url` varchar(255) DEFAULT NULL, 
-    `video_url` varchar(255) DEFAULT NULL, 
-    PRIMARY KEY (`id`), 
-    UNIQUE KEY `name_UNIQUE` (`name`), 
-    UNIQUE KEY `video_url_UNIQUE` (`video_url`), 
-    UNIQUE KEY `image_url_UNIQUE` (`image_url`)
-    );"
+query = "CREATE TABLE `state` ( `id` int NOT NULL AUTO_INCREMENT,  `name` varchar(100) NOT NULL,  `description` longtext, `image_url` varchar(255) DEFAULT NULL, `video_url` varchar(255) DEFAULT NULL, PRIMARY KEY (`id`),  UNIQUE KEY `name_UNIQUE` (`name`), UNIQUE KEY `video_url_UNIQUE` (`video_url`), UNIQUE KEY `image_url_UNIQUE` (`image_url`));"
 
 ## Ejecutamos la consulta
 cursor.execute(query)
@@ -105,7 +95,7 @@ values = [
     (
         "Salta",
         "La provincia de Salta posee un clima benigno y los encantos indicados para ser una de las más visitadas por los turistas durante todo el año. A sus bellezas naturales, que se pueden apreciar en las distintas regiones que alberga, se suma la diversidad de sus habitantes, que encandila a quienes se acerquen hasta allí por sus tradiciones y costumbres, algunas seculares. Salta Capital es ideal para alojarse en ella y disfrutarla desde el mismo momento en que salimos del hotel y comenzamos a caminarla. Museos, iglesias, edificios históricos, plazas con sus cafés y paseos varios nos permiten ver la influencia colonial, que se aprecia en la arquitectura y en uno de los cascos históricos más protegidos de Argentina. Aquí sin dudas, el pasado se preserva. Al oeste, la Cordillera de los Andes y la Puna, con su increíble viaducto La Polvorilla y el Tren de las Nubes. Al sur, los Valles Calchaquíes. Al norte, el Chaco Salteño, cuyos verdes interminables la asemejan a la mismísima selva misionera. Única en paisajes, a cada sitio inigualable se suma su excelencia gastronómica que se manifiesta en sabores, colores y aromas propios de esta región del mundo. Aquí el comino es oro y tal es la bondad de los salteños que locros, tamales y empanadas tienen parte de este bello tesoro. Desde la ciudad de Salta hacia el resto de la provincia las opciones también son paradisíacas: destinos cercanos como Cachi y Cafayate, o más lejanos como las Salinas Grandes y el camino hasta ellas, son excursiones conocidas ya mundialmente, y con los méritos suficientes para prolongar la estadía del turista por varios días más.", 
-        "https://magazine-wellness.com/wp-content/uploads/2019/02/%C2%A1Los-atractivos-paisajes-de-Salta-la-linda.jpg", 
+        "https://www.turisteca.tur.ar/wp-content/uploads/salta-06.jpg", 
         "https://www.youtube.com/watch?v=mrzSxGWAKy4"
     ),
     (
