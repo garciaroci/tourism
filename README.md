@@ -1,6 +1,5 @@
 # Conociendo Argentina
 
-Cada vez que comenzamos a trabajar en la terminal ejecutamos los siguientes comandos
 1. Crear Entorno local de desarrollo para Python (Solo lo ejecutamos al principio)
 
 _Linux/Mac_
@@ -14,6 +13,7 @@ _Windows_
 ```
 python -m venv venv
 ```
+Cada vez que comenzamos a trabajar en la terminal ejecutamos los siguientes comandos
 
 2. Activar entorno de desarrollo
 
